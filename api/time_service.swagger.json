@@ -1,0 +1,286 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "time_service.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "TimeService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/getAllUsersByTimeInRange": {
+      "post": {
+        "operationId": "TimeService_GetAllUsersByTimeInRange",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetAllUsersByTimeInRangeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetAllUsersByTimeInRangeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TimeService"
+        ]
+      }
+    },
+    "/api/getFallingAsleepTime": {
+      "post": {
+        "operationId": "TimeService_GetFallingAsleep",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetFallingAsleepResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetFallingAsleepRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TimeService"
+        ]
+      }
+    },
+    "/api/getWakeUpTime": {
+      "post": {
+        "operationId": "TimeService_GetWakeUpTime",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetWakeUpTimeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetWakeUpTimeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TimeService"
+        ]
+      }
+    },
+    "/api/setFallingAsleepTime": {
+      "post": {
+        "operationId": "TimeService_SetFallingAsleep",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiSetFallingAsleepResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiSetFallingAsleepRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TimeService"
+        ]
+      }
+    },
+    "/api/setWakeUpTime": {
+      "post": {
+        "operationId": "TimeService_SetWakeUpTime",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiSetWakeUpTimeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiSetWakeUpTimeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TimeService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "apiGetAllUsersByTimeInRangeRequest": {
+      "type": "object"
+    },
+    "apiGetAllUsersByTimeInRangeResponse": {
+      "type": "object"
+    },
+    "apiGetFallingAsleepRequest": {
+      "type": "object",
+      "properties": {
+        "tgId": {
+          "type": "string"
+        }
+      }
+    },
+    "apiGetFallingAsleepResponse": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string"
+        }
+      }
+    },
+    "apiGetWakeUpTimeRequest": {
+      "type": "object",
+      "properties": {
+        "tgId": {
+          "type": "string"
+        }
+      }
+    },
+    "apiGetWakeUpTimeResponse": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string"
+        }
+      }
+    },
+    "apiSetFallingAsleepRequest": {
+      "type": "object",
+      "properties": {
+        "tgId": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        }
+      }
+    },
+    "apiSetFallingAsleepResponse": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string"
+        }
+      }
+    },
+    "apiSetWakeUpTimeRequest": {
+      "type": "object",
+      "properties": {
+        "tgId": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        }
+      }
+    },
+    "apiSetWakeUpTimeResponse": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

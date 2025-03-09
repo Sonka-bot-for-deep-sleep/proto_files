@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/Sonka-bot-for-deep-sleep/proto_files/api";
+
+import "google/api/annotations.proto";

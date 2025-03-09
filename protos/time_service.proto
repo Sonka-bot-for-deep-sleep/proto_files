@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/Sonka-bot-for-deep-sleep/proto_files/api";
+
+import "google/api/annotations.proto";
+
+service TimeService {
+    rpc GetWakeUpTime(GetWakeUpTimeRequest) returns (GetWakeUpTimeResponse) {
+        option (google.api.http) = {
+            post: "/api/getWakeUpTime",
+            body: "*"
+        };
+    };
+    rpc GetFallingAsleep(GetFallingAsleepRequest) returns (GetFallingAsleepResponse) {
+        option (google.api.http) = {
+            post: "/api/getFallingAsleepTime",
+            body: "*"
+        };
+    };
+    rpc SetWakeUpTime(SetWakeUpTimeRequest) returns (SetWakeUpTimeResponse) {
+        option (google.api.http) = {
+            post: "/api/setWakeUpTime",
+            body: "*"
+        };
+    };
+    rpc SetFallingAsleep(SetFallingAsleepRequest) returns (SetFallingAsleepResponse) {
+        option (google.api.http) = {
+            post: "/api/setFallingAsleepTime",
+            body: "*"
+        };
+    };
+    rpc GetAllUsersByTimeInRange(GetAllUsersByTimeInRangeRequest) returns (GetAllUsersByTimeInRangeResponse) {
+        option (google.api.http) = {
+            post: "/api/getAllUsersByTimeInRange",
+            body: "*"
+        };
+    };
+}
+message GetAllUsersByTimeInRangeResponse {}
+message GetAllUsersByTimeInRangeRequest {}
+
+message SetFallingAsleepResponse {
+    string time = 1;
+}
+
+message SetFallingAsleepRequest {
+    string tg_id = 1;
+    string time = 2;
+}
+
+message SetWakeUpTimeResponse {
+    string time = 1;
+}
+
+message SetWakeUpTimeRequest {
+    string tg_id = 1;
+    string time = 2;
+}
+
+message GetFallingAsleepResponse {
+    string time = 1;
+}
+
+message GetFallingAsleepRequest {
+    string tg_id = 1;
+}
+
+message GetWakeUpTimeResponse {
+    string time = 1;
+}
+
+message GetWakeUpTimeRequest {
+    string tg_id = 1;
+}

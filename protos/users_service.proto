@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/Sonka-bot-for-deep-sleep/proto_files/api";
+
+import "google/api/annotations.proto";
+
+service UsersService {
+    rpc GetUserByTgID(GetUserByTgIDRequest) returns (GetUserByTgIDResponse) {
+        option (google.api.http) = {
+            post: "/api/getUserByTgID",
+            body: "*"
+        };
+    };
+}
+
+
+message GetUserByTgIDResponse {
+    User user = 1;
+}
+
+
+message GetUserByTgIDRequest {
+    string tg_id = 1;
+}
+
+message User {
+    string tg_id = 1;
+    string name = 2;
+    string login = 3;
+}
