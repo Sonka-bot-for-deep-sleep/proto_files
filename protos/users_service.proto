@@ -13,8 +13,22 @@ service UsersService {
             body: "*"
         };
     };
+
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {
+        option (google.api.http) = {
+            post: "/api/createUser",
+            body: "*",
+        };
+    };
 }
 
+message CreateUserResponse {
+    User user = 1;
+}
+
+message CreateUserRequest {
+    User user = 1;
+}
 
 message GetUserByTgIDResponse {
     User user = 1;

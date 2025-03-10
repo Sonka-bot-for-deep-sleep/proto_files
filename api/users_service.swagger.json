@@ -16,6 +16,38 @@
     "application/json"
   ],
   "paths": {
+    "/api/createUser": {
+      "post": {
+        "operationId": "UsersService_CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiCreateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UsersService"
+        ]
+      }
+    },
     "/api/getUserByTgID": {
       "post": {
         "operationId": "UsersService_GetUserByTgID",
@@ -50,6 +82,22 @@
     }
   },
   "definitions": {
+    "apiCreateUserRequest": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/apiUser"
+        }
+      }
+    },
+    "apiCreateUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/apiUser"
+        }
+      }
+    },
     "apiGetUserByTgIDRequest": {
       "type": "object",
       "properties": {
